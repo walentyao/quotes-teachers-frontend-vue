@@ -14,3 +14,14 @@ export async function login(email, password) {
 
     return {token, username};
 }
+
+export async function registration({email, password, username}) {
+    const {data} = await instance.post('/registration', {
+        email,
+        password,
+        username
+    });
+    const {token} = data;
+
+    return token;
+}

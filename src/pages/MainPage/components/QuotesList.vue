@@ -1,20 +1,15 @@
 <template>
     <div class="list">
-        <quotes-item v-for="item in quotes" :quote="item" :key="item.id"></quotes-item>
+        <quotes-item v-for="item in quotes" :quote="item" :key="item.id" ></quotes-item>
     </div>
 </template>
 
 <script>
-import QuotesItem from "@/components/QuotesItem.vue";
+import QuotesItem from "@/pages/MainPage/components/QuotesItem.vue";
 
 export default {
     name: "QuotesList",
     components: {QuotesItem},
-    data() {
-        return {
-
-        }
-    },
     props:{
         quotes:Array
     }

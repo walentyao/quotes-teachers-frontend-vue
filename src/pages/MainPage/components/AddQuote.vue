@@ -9,7 +9,7 @@
         <input type="text"
                placeholder="Автор"
                class="add-container_input"
-               v-model="teacherName"
+               v-model="teacher"
         >
         <input type="text"
                placeholder="Факультет"
@@ -27,15 +27,15 @@ export default {
     data() {
         return {
             content: '',
-            teacherName: '',
+            teacher: '',
             faculty: ''
         }
     },
     methods: {
         addQuote() {
-            this.$emit('addQuote', {content: this.content, teacherName: this.teacherName, faculty: this.faculty});
+            this.$emit('addQuote', {content: this.content, teacher: this.teacher, faculty: this.faculty});
             this.content = '';
-            this.teacherName = '';
+            this.teacher = '';
             this.faculty = '';
         }
     }

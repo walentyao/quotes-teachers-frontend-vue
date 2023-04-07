@@ -1,6 +1,8 @@
 <template>
     <div class="header">
-        <div @click="this.$router.push('/')" class="logo">Logo</div>
+        <div @click="this.$router.push('/')" class="logo">
+            <icon-logo></icon-logo>
+        </div>
 
         <div class="buttons-group" v-if="!authorization">
             <router-link
@@ -19,24 +21,31 @@
         </div>
 
         <div class="buttons-group" v-else>
-            <router-link
+            <span>{{ username }}</span>
+            <button
                     class="buttons-group_btn"
-                    to="/register"
+                    @click="logOut"
             >Выйти
-            </router-link>
+            </button>
         </div>
     </div>
 </template>
 
 <script>
-import {mapState} from "vuex";
+import {mapMutations, mapState} from "vuex";
+import IconLogo from "@/assets/icon-logo.vue";
 
 export default {
     name: "HeaderPages",
+    components: {IconLogo},
     computed: {
         ...mapState({
-            authorization: state => state.authStore.authorization
+            authorization: state => state.authStore.authorization,
+            username: state => state.authStore.username
         })
+    },
+    methods: {
+        ...mapMutations('authStore', ['logOut'])
     }
 }
 </script>
@@ -53,6 +62,8 @@ export default {
 
 .buttons-group {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     column-gap: 10px;
 }
 
@@ -62,8 +73,10 @@ export default {
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
-
+    cursor: pointer;
     transition: all 0.2s;
+
+    font-size: 16px;
 }
 
 .buttons-group_btn:hover {
@@ -74,7 +87,6 @@ export default {
 
 .logo {
     cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
+    padding:0 20px;
 }
 </style>

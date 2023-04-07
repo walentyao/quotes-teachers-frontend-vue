@@ -5,11 +5,19 @@
 
 <script>
 import HeaderPages from "@/components/HeaderPages.vue";
+import {mapMutations} from "vuex";
 
 export default {
     name: 'App',
     components: {
         HeaderPages
+    },
+    methods:{
+        ...mapMutations('authStore',['checkAuth'])
+    },
+
+    beforeMount() {
+        this.checkAuth();
     }
 }
 </script>

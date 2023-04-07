@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LoginPanel from "@/components/LoginPanel.vue";
+import LoginPanel from "@/pages/LoginPage/components/LoginPanel.vue";
 
 export default {
     name: "LoginPage",

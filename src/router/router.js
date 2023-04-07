@@ -1,7 +1,7 @@
-import MainPage from "@/pages/MainPage.vue";
+import MainPage from "@/pages/MainPage/MainPage.vue";
 import {createRouter, createWebHistory} from "vue-router";
-import LoginPage from "@/pages/LoginPage.vue";
-import RegisterPage from "@/pages/RegisterPage.vue";
+import LoginPage from "@/pages/LoginPage/LoginPage.vue";
+import RegisterPage from "@/pages/RegisterPage/RegisterPage.vue";
 
 const routes = [
     {
